@@ -1,0 +1,21 @@
+<div>
+    This is a sample of a resource that gets data injected from the surrounding API. It is implemented either as native JavaScript or provided by the Java Swing application.
+</div>
+<table class="table table-striped" ng-controller="InvoiceCtrl">
+    <thead>
+        <tr>
+            <th>Number</th><th>Date</th><th>Company</th><th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="invoice in invoices track by $index">
+            <td>{{invoice.number}}</td>
+            <td>{{invoice.date}}</td>
+            <td>{{findCompanyById(invoice.companyId).company}}</td>
+            <td>
+                <button ng-hide="invoice.paid" ng-click="invoice.paid = true" type="button" class="btn btn-success btn-xs">Mark paid</button>
+                <span ng-show="invoice.paid" class="label label-default">Paid</span>
+            </td>
+        </tr>
+    </tbody>
+</table>

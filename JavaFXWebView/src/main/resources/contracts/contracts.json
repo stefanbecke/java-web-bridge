@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Mark",
+        "company": "ACME corp",
+        "companyId": "1",
+        "active": true
+    },
+    {
+        "name": "Steve",
+        "company": "Wonder inc",
+        "companyId": "2",
+        "active": true
+    },
+    {
+        "name": "Marissa",
+        "company": "Sun shine",
+        "companyId": "3",
+        "active": false
+    }
+]
