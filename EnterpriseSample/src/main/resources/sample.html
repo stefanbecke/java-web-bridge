@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html ng-app="sampleApp">
+    <head>
+        <title>Sample website</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous" />
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha256-o8bM0Z5cFvrvvvQp0EJFi4LICvBA9FCx7iCNuojVsN8" crossorigin="anonymous" />
+    <style>
+        /* page adjustments for navbar */
+
+        body {
+            padding-top: 70px;
+            padding-bottom: 30px;
+        }
+
+    </style>
+
+    <body role="document">
+
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Demo App</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li ng-class="{active: isTabActive('home') }"><a href="#">Home</a></li>
+                        <li ng-class="{active: isTabActive('about') }"><a href="#about">About</a></li>
+                        <li ng-class="{active: isTabActive('contracts') }"><a href="#contracts">Contracts</a></li>
+                        <li ng-class="{active: isTabActive('invoices') }"><a href="#invoices">Invoices</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div ng-view class="container theme-showcase" role="main">
+            Loading...
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="mailDialog" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="modalLabel">Send a Mail to <strong><span id="mailReceiver">...</span></strong></h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <form>
+                            <div class="form-group">
+                                <label for="inputSubject">Subject</label>
+                                <input type="email" class="form-control" id="inputSubject" placeholder="A nice subject...">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputCC">CC</label>
+                                <input type="email" class="form-control" id="inputCC" placeholder="sales@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputTextarea">Body</label><br />
+                                <textarea id="inputTextarea" class="form-control" row="30"></textarea>
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Send it!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" integrity="sha256-rsPUGdUPBXgalvIj4YKJrrUlmLXbOb6Cp7cdxn1qeUc=" crossorigin="anonymous"></script>
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
+
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js" integrity="sha256-i7u8sPu/CKyDwBctXpTFPwjRohRWfQG5ptFecxpLTQ8=" crossorigin="anonymous"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js" integrity="sha256-D7HJqz//k+tEexGetHrOUFuOGyRc/F8794Ej0ImyoW4=" crossorigin="anonymous"></script>
+
+        <script src="sample.js"></script>
+</html>

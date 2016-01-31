@@ -8,3 +8,11 @@ cd JavaFXWebView
 mvn clean install
 java -jar target/java-web-bridge-1.0.0.CI-SNAPSHOT.jar
 ```
+
+A more complex example is in the EnterpriseSample folder. You can run it using
+
+```
+cd EnterpriseSample
+mvn clean install
+java -jar target/enterprise-java-web-bridge-1.0.0.CI-SNAPSHOT.jar
+```

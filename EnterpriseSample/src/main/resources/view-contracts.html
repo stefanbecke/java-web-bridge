@@ -1,0 +1,21 @@
+<div>
+    This is a sample of an HTTP resource: The data is loaded using HTTP/Ajax calls no matter whether embedded in the Swing application or running native.
+</div>
+<table class="table table-striped" ng-controller="ContractCtrl">
+    <thead>
+        <tr>
+            <th>Name</th><th>Company</th><th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="contract in contracts track by $index">
+            <td>{{contract.name}}</td>
+            <td>{{contract.company}}</td>
+            <td>
+                <button type="button" ng-show="contract.active" ng-click="sendMail(contract)" class="btn btn-primary btn-xs">Send mail</button>
+                <button type="button" ng-show="contract.active" ng-click="disable(contract)" class="btn btn-warning btn-xs">Disable</button>
+                <button type="button" ng-show="!contract.active" ng-click="enable(contract)" class="btn btn-success btn-xs">Enable</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
