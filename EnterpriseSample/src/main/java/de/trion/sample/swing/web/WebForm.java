@@ -73,22 +73,16 @@ public class WebForm extends JPanel
 
             final WebEngine webEngine = webView.getEngine();
 
-            //add callback for publishing java api
-            webEngine.getLoadWorker().stateProperty().addListener(
-                    (ObservableValue<? extends Worker.State> ov, Worker.State oldState, Worker.State newState) ->
-            {
-                if (newState == Worker.State.SUCCEEDED)
-                {
-                    //register api
-                    JSObject win = (JSObject) webEngine.executeScript("window");
-                    win.setMember("appFrame", new ApiBridge());
-                    
-                    //adjust styling
-                    URL resource = getClass().getResource("/app-styles.css");
-                    String css = resource.toExternalForm();
-                    webView.getEngine().setUserStyleSheetLocation(css);
-                }
-            });
+            //register api
+            JSObject win = (JSObject) webEngine.executeScript("window");
+            win.setMember("appFrame", new ApiBridge());
+
+            //adjust styling
+            URL resource = getClass().getResource("/app-styles.css");
+            String css = resource.toExternalForm();
+            webView.getEngine().setUserStyleSheetLocation(css);
+            
+            //show errors in java stdout
             webEngine.setOnError((WebErrorEvent event) ->
             {
                 System.out.println("Error: " + event.getMessage());
